@@ -5,6 +5,11 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+ul, li, a {
+    text-decoration: none;
+    list-style: none;
+}
+
 path {
     fill: #ECCEA7;
     stroke: #fff;
@@ -19,65 +24,78 @@ path:hover {
 
 body {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    margin-top: 60px;
-    width: 190vh;
+    height: 100vh;
+    gap: 20%;
 }
 
-.card {
-    width: 19vw;
-    height: 44vh;
+.none {
+    display: none;
+}
+
+.cardState {
+    width: 375px;
+    height: 417px;
     background-color: #F5E7D3;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    overflow-y: auto;
 }
 
-.circle_state {
+.state_acronym {
     height: 100px;
     width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    min-width: 100px;
+    min-height: 100px;
     background-color: #FA9E27;
     border-radius: 50%;
-    font-size: 2.25rem;
-    color: #fff;
-    font-weight: 900;
+    display: grid;
+    place-content: center;
     border: 4px solid #fff;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
 }
 
+.stateAcronym {
+    font-size: 2.25rem;
+    color: #fff;
+    font-weight: 900;
+}
+
 .state_details {
+    margin: 20px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin-top: 10px;
 }
 
 .state_info {
+    padding: 20px;
     display: flex;
     flex-direction: column;
 }
 
-.state_details .name_state {
+.name_state {
     font-size: 2.25rem;
     font-weight: 900;
     color: #FA9E27;
+    margin-bottom: 5px;
 }
 
-.state_details .capital {
+.capital {
     font-size: 1rem;
-}
-
-.state_details .regiao {
-    font-size: 1rem;
-}
-
-.city_state {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+}
+
+.regiao {
+    font-size: 1rem;
+}
+
+.containerCities {
+    margin: 20px;
+}
+
+.containerCities ul {
+    display: grid;
+    font-size: 0.9rem;
+    height: 200px;
+    grid-template-columns: 50% 50%;
 }

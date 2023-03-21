@@ -1,30 +1,32 @@
 'use strict'
 
-const preencherEstado = async (estado) => {
-    const url = `http://localhost:8080/senai/estado/sigla/${estado}`
-    const response = await fetch(url)
-    const data = await response.json()
-
-    return {
-        sigla: data.uf,
-        estado: data.descricao,
-        capital: data.capital,
-        regiao: data.regiao
-    }
-}
+import { searchState } from "./estadosAPI.js"
+import { getCities } from "./estadosAPI.js"
 
 const mapa = document.querySelector('svg')
 
-const getEstados = (event) => {
+const dadosEstado = document.getElementById('card_state')
+
+const getEstados = async (event) => {
     const estado = event.target.id.replace('BR-', '')
-    preencherCard(estado)
-}
+    const estadoPesquisado = await searchState(estado)
+    const cidadesEstadoPesquisado = await getCities(estado)
 
-const preencherCard = async (siglaEstado) => {
-    document.getElementById('card').value
-    const estado = await preencherEstado(siglaEstado)
+    document.getElementById('stateAcronym').innerHTML = estadoPesquisado.uf
+    document.getElementById('name_state').innerHTML = estadoPesquisado.nome
+    document.getElementById('capital').innerHTML = estadoPesquisado.capital
+    document.getElementById('region').innerHTML = estadoPesquisado.regiao
 
-    document.getElementById('circle_state').innerHTML = estado.uf
+    const ul = document.getElementById('listCities')
+
+    cidadesEstadoPesquisado.cidades.forEach(function (city) {
+        const citiesList = document.createElement('li')
+        citiesList.textContent = city
+
+        ul.append(citiesList)
+    })
+
+    dadosEstado.classList.remove('none')
 }
 
 mapa.addEventListener('click', getEstados)

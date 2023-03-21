@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa - Estados Brasil</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./js/app.js" defer></script>
+    <script src="./js/app.js" defer type="module"></script>
 </head>
 
 <body>
@@ -100,21 +100,27 @@
         </svg>
     </div>
 
-    <div class="card">
-        <div class="state_details" id="state_details">
-            <span class="circle_state" id="circle_state">AC</span>
+    <div class="cardState none" id="card_state">
+
+        <div class="state_details">
+            <div class="state_acronym">
+                <span class="stateAcronym" id="stateAcronym"></span>
+            </div>
 
             <div class="state_info" id="state_info">
-                <span class="name_state" id="name_state">ACRE</span>
-                <span class="capital" id="capital"><strong>Capital:</strong> Rio Branco</span>
-                <span class="regiao" id="regiao"><strong>Regiao:</strong> Norte</span>
+                <span class="name_state" id="name_state"></span>
+                <strong class="capital">Capital: </strong><span class="capital" id="capital"></span>
+                <strong class="region">Região: </strong><span class="region" id="region"></span>
             </div>
         </div>
 
-        <ul class="city_state">
+        <div class="containerCities">
             <strong>Cidades: </strong>
-        </ul>
-        
+            <ul id="listCities">
+                
+            </ul>
+        </div>
+
     </div>
 
 </body>
