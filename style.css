@@ -46,6 +46,19 @@ body {
     overflow-y: auto;
 }
 
+.cardState::-webkit-scrollbar {
+    width: 10px;
+}
+
+.cardState::-webkit-scrollbar-track {
+    background: #f0d6b4;
+  }
+
+  .cardState::-webkit-scrollbar-thumb {
+    background-color: #FA9E27;
+    border-radius: 20px;
+  }
+
 .state_acronym {
     height: 100px;
     width: 100px;

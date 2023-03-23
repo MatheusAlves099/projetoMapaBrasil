@@ -18,6 +18,7 @@ const getEstados = async (event) => {
     document.getElementById('region').innerHTML = estadoPesquisado.regiao
 
     const ul = document.getElementById('listCities')
+    ul.textContent = ""
 
     cidadesEstadoPesquisado.cidades.forEach(function (city) {
         const citiesList = document.createElement('li')
